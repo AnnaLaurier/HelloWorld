@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    private let turnedOffAlpha = 0.3
+    private let turnedOffAlpha = 0.2
     private let turnedOnAlpha = 1.0
 
     @IBOutlet private weak var redView: UIView!
