@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
     private let turnedOffAlpha = 0.2
     private let turnedOnAlpha = 1.0
@@ -20,21 +20,20 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configureStartButton()
+
         configureButton(view: redView)
         configureButton(view: yellowView)
         configureButton(view: greenView)
-
-        startButton.layer.cornerRadius = 10
-        startButton.layer.cornerCurve = .continuous
-        startButton.setTitle("Start", for: .normal)
     }
+}
 
-    private func configureButton(view: UIView) {
-        view.layer.cornerRadius = view.frame.height / 2
-        view.alpha = turnedOffAlpha
-    }
+// MARK: - Actions
 
-    @IBAction private func onStartButtonTapped() {
+private extension ViewController {
+
+    @IBAction
+    func onStartButtonTapped() {
         if redView.alpha == turnedOnAlpha {
             yellowView.alpha = turnedOnAlpha
             redView.alpha = turnedOffAlpha
@@ -49,6 +48,20 @@ class ViewController: UIViewController {
             startButton.setTitle("NEXT", for: .normal)
         }
     }
-
 }
 
+// MARK: - Configure
+
+private extension ViewController {
+
+    func configureButton(view: UIView) {
+        view.layer.cornerRadius = view.frame.height / 2
+        view.alpha = turnedOffAlpha
+    }
+
+    func configureStartButton() {
+        startButton.layer.cornerRadius = 10
+        startButton.layer.cornerCurve = .continuous
+        startButton.setTitle("Start", for: .normal)
+    }
+}
