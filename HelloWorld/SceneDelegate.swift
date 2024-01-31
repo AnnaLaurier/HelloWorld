@@ -1,5 +1,3 @@
-//
-//  SceneDelegate.swift
 //  HelloWorld
 //
 //  Created by Anna Lavrova on 29.01.2024.
